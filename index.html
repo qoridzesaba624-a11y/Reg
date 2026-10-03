@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS // The Elite Developer Hub & Collective</title>
+  <meta name="description" content="An elite developer collective pushing the boundaries of distributed systems, AI infrastructure, and open-source software. Join the next generation of builders.">
+  <meta name="keywords" content="programming hub, developer community, open source, coding cohort, software engineering, hackathons">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-grid" aria-hidden="true"></div>
+
+  <!-- Announcement Bar -->
+  <aside class="top-announcement" aria-label="Announcement">
+    <div class="container announcement-inner">
+      <span class="badge badge-glow">New Cohort</span>
+      <p>Applications for Fall 2026 Batch are officially open. <strong>Limited to 50 builders.</strong></p>
+      <a href="#connect" class="announcement-link">
+        Apply Now
+        <svg class="icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="NEXUS Hub Home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+            <path d="M8 6L16 2L24 6V14L16 18L8 14V6Z" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M8 18L16 22L24 18V26L16 30L8 26V18Z" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="16" cy="14" r="3" fill="#6366f1"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="8" y1="2" x2="24" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818cf8"/>
+                <stop offset="0.5" stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-text">NEXUS<span class="brand-sub">.HUB</span></span>
+        <span class="version-tag">v2.4</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#ecosystem" class="nav-link">Ecosystem</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#connect" class="nav-link">Connect</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark/light theme" title="Toggle theme">
+          <svg class="sun-icon icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <a href="#connect" class="btn btn-primary btn-sm glow-on-hover">
+          <span>Apply to Hub</span>
+          <svg class="icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#features" class="mobile-nav-link">Features</a></li>
+        <li><a href="#ecosystem" class="mobile-nav-link">Ecosystem</a></li>
+        <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+        <li><a href="#connect" class="mobile-nav-link">Connect</a></li>
+        <li class="mobile-cta-item">
+          <a href="#connect" class="btn btn-primary btn-block">Join Cohort 2026</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <!-- Hero Text -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span class="badge-text">DevCollective // Cohort V Active</span>
+            <span class="divider">|</span>
+            <span class="badge-sub">Acceptance: 8.4%</span>
+          </div>
+
+          <h1 class="hero-title">
+            Engineered for <span class="gradient-text">Builders</span>.<br>
+            United by <span class="gradient-text-alt">Code</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            An elite engineering collective dedicated to high-concurrency systems, AI infrastructure, and open-source mastery. We write clean code, conduct rigorous peer reviews, and ship software that scales.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#connect" class="btn btn-primary btn-lg glow-button">
+              <span>Join the Community</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </a>
+            <a href="#about" class="btn btn-secondary btn-lg">
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+              <span>Explore Manifesto</span>
+            </a>
+          </div>
+
+          <!-- Quick Proof Bar -->
+          <div class="hero-proof">
+            <div class="avatar-group">
+              <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80');" title="Elena R. - Systems Architect"></div>
+              <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80');" title="Marcus T. - Rust Core Contributor"></div>
+              <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80');" title="Sophia K. - AI Infrastructure"></div>
+              <div class="avatar avatar-more">+450</div>
+            </div>
+            <div class="proof-text">
+              <strong>450+ verified engineers</strong> from Google, Vercel, Stripe & open source maintainers.
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Interactive Terminal / Sandbox Preview -->
+        <div class="hero-interactive">
+          <div class="terminal-card" id="terminal-card">
+            <!-- Window Bar -->
+            <div class="terminal-header">
+              <div class="window-controls">
+                <span class="dot dot-close" title="Close"></span>
+                <span class="dot dot-min" title="Minimize"></span>
+                <span class="dot dot-max" title="Expand"></span>
+              </div>
+              <div class="terminal-tabs">
+                <button class="terminal-tab active" data-tab="config">
+                  <svg class="tab-icon" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  <span>nexus.config.ts</span>
+                </button>
+                <button class="terminal-tab" data-tab="pipeline">
+                  <svg class="tab-icon" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  <span>mesh_router.rs</span>
+                </button>
+                <button class="terminal-tab" data-tab="deploy">
+                  <svg class="tab-icon" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                  <span>deploy.log</span>
+                </button>
+              </div>
+              <button class="terminal-action-btn" id="copy-code-btn" title="Copy code snippet">
+                <svg class="icon copy-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span class="copied-tooltip">Copied!</span>
+              </button>
+            </div>
+
+            <!-- Terminal Body Content -->
+            <div class="terminal-body">
+              <!-- Tab 1: nexus.config.ts -->
+              <div class="code-view active" id="tab-config">
+                <pre><code><span class="code-line"><span class="line-num">1</span><span class="c-keyword">import</span> { <span class="c-entity">defineHubConfig</span> } <span class="c-keyword">from</span> <span class="c-string">'@nexus/core'</span>;</span>
+<span class="code-line"><span class="line-num">2</span></span>
+<span class="code-line"><span class="line-num">3</span><span class="c-keyword">export default</span> <span class="c-entity">defineHubConfig</span>({</span>
+<span class="code-line"><span class="line-num">4</span>  <span class="c-prop">cohort</span>: <span class="c-string">'Fall-2026'</span>,</span>
+<span class="code-line"><span class="line-num">5</span>  <span class="c-prop">standards</span>: {</span>
+<span class="code-line"><span class="line-num">6</span>    <span class="c-prop">codeReview</span>: <span class="c-string">'strict-two-approvals'</span>,</span>
+<span class="code-line"><span class="line-num">7</span>    <span class="c-prop">testCoverageThreshold</span>: <span class="c-number">0.95</span>,</span>
+<span class="code-line"><span class="line-num">8</span>    <span class="c-prop">zeroLatencyTolerance</span>: <span class="c-boolean">true</span></span>
+<span class="code-line"><span class="line-num">9</span>  },</span>
+<span class="code-line"><span class="line-num">10</span>  <span class="c-prop">focusAreas</span>: [</span>
+<span class="code-line"><span class="line-num">11</span>    <span class="c-string">'distributed-consensus'</span>,</span>
+<span class="code-line"><span class="line-num">12</span>    <span class="c-string">'local-llm-orchestration'</span>,</span>
+<span class="code-line"><span class="line-num">13</span>    <span class="c-string">'high-frequency-compilers'</span></span>
+<span class="code-line"><span class="line-num">14</span>  ],</span>
+<span class="code-line"><span class="line-num">15</span>  <span class="c-comment">// Verified candidate auto-grant pass</span></span>
+<span class="code-line"><span class="line-num">16</span>  <span class="c-prop">computeAccess</span>: <span class="c-string">'unlimited-h100-cluster'</span></span>
+<span class="code-line"><span class="line-num">17</span>});</span></code></pre>
+              </div>
+
+              <!-- Tab 2: mesh_router.rs -->
+              <div class="code-view" id="tab-pipeline">
+                <pre><code><span class="code-line"><span class="line-num">1</span><span class="c-keyword">use</span> <span class="c-entity">nexus_mesh</span>::{<span class="c-entity">ClusterNode</span>, <span class="c-entity">ConsensusEngine</span>};</span>
+<span class="code-line"><span class="line-num">2</span></span>
+<span class="code-line"><span class="line-num">3</span><span class="c-keyword">pub async fn</span> <span class="c-entity">bootstrap_hub_node</span>() -> <span class="c-entity">Result</span>&lt;(), <span class="c-entity">MeshError</span>&gt; {</span>
+<span class="code-line"><span class="line-num">4</span>    <span class="c-keyword">let</span> node = <span class="c-entity">ClusterNode</span>::<span class="c-entity">bind</span>(<span class="c-string">"0.0.0.0:8080"</span>).<span class="c-keyword">await</span>?;</span>
+<span class="code-line"><span class="line-num">5</span>    <span class="c-entity">println!</span>(<span class="c-string">"✓ Nexus Mesh peer synchronized: {} nodes"</span>, node.<span class="c-prop">peers</span>().<span class="c-entity">len</span>());</span>
+<span class="code-line"><span class="line-num">6</span>    </span>
+<span class="code-line"><span class="line-num">7</span>    <span class="c-keyword">let</span> engine = <span class="c-entity">ConsensusEngine</span>::<span class="c-entity">with_raft</span>(node);</span>
+<span class="code-line"><span class="line-num">8</span>    engine.<span class="c-entity">stream_telemetry</span>().<span class="c-keyword">await</span>;</span>
+<span class="code-line"><span class="line-num">9</span>    <span class="c-entity">Ok</span>(())</span>
+<span class="code-line"><span class="line-num">10</span>}</span></code></pre>
+              </div>
+
+              <!-- Tab 3: deploy.log -->
+              <div class="code-view" id="tab-deploy">
+                <pre><code><span class="code-line"><span class="line-num">1</span><span class="c-terminal-prompt">$</span> nexus test --all-targets --release</span>
+<span class="code-line"><span class="line-num">2</span><span class="c-success">✔ Running 148 suite benchmarks [OK]</span></span>
+<span class="code-line"><span class="line-num">3</span><span class="c-terminal-info">ℹ p99 latency: 1.42ms (Target: &lt;5ms)</span></span>
+<span class="code-line"><span class="line-num">4</span><span class="c-success">✔ Memory footprint: 18.2 MB [PASS]</span></span>
+<span class="code-line"><span class="line-num">5</span><span class="c-terminal-prompt">$</span> nexus deploy --mesh global-edge</span>
+<span class="code-line"><span class="line-num">6</span><span class="c-success">🚀 Deployed to 24 Edge PoPs in 340ms</span></span>
+<span class="code-line"><span class="line-num">7</span><span class="c-terminal-info">⚡ Status: Healthy | 0 Regressions</span></span></code></pre>
+              </div>
+            </div>
+
+            <!-- Floating Micro Badges -->
+            <div class="floating-badge badge-p99">
+              <span class="indicator-led"></span>
+              <span>p99 Latency: <strong>1.42ms</strong></span>
+            </div>
+            <div class="floating-badge badge-reviews">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>4,812 Peer PRs Merged</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Bar Banner -->
+      <div class="hero-stats-band">
+        <div class="container stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-target="450">0</div>
+            <div class="stat-suffix">+</div>
+            <div class="stat-label">Senior Builders</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="98">0</div>
+            <div class="stat-suffix">%</div>
+            <div class="stat-label">Code Review Velocity</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="120">0</div>
+            <div class="stat-suffix">k+</div>
+            <div class="stat-label">Commits Merged</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="42">0</div>
+            <div class="stat-suffix"></div>
+            <div class="stat-label">Open Source Grants</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="about-section section-padding" id="about">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-kicker">// 01. ABOUT THE HUB</div>
+          <h2 class="section-title">Not just another server.<br><span class="gradient-text">A high-velocity engineering guild.</span></h2>
+          <p class="section-subtitle">
+            Most developer communities are noisy discussion boards with zero accountability. NEXUS was built from the ground up to solve that: a merit-based incubator for engineers who want to ship impactful systems.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left Column: Mission & Core Pillars -->
+          <div class="about-pillars">
+            <div class="pillar-card active" data-pillar="reviews">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+              </div>
+              <div class="pillar-body">
+                <h3>Brutally Honest Code Reviews</h3>
+                <p>No rubber-stamped pull requests. Every architecture proposal is critiqued for cache efficiency, memory safety, and algorithmic complexity by production engineers.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card" data-pillar="infra">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+              <div class="pillar-body">
+                <h3>Production Sandbox & GPU Clusters</h3>
+                <p>Members receive sponsored compute credits across dedicated Kubernetes clusters and NVIDIA H100 inference nodes to benchmark distributed workloads.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card" data-pillar="network">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path><circle cx="12" cy="12" r="4"></circle></svg>
+              </div>
+              <div class="pillar-body">
+                <h3>Direct Pipeline to Top-Tier Founders</h3>
+                <p>Skip cold applications. Our alumni build for companies like Stripe, Anthropic, and Datadog, with active founder matching for our cohort graduates.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Culture & Philosophy Card -->
+          <div class="about-interactive-card">
+            <div class="card-glass-header">
+              <span class="window-pill">Hub Manifesto & Standards</span>
+              <div class="tabs-nav" id="manifesto-tabs">
+                <button class="pill-tab active" data-tab="philosophy">Philosophy</button>
+                <button class="pill-tab" data-tab="admissions">Selection</button>
+                <button class="pill-tab" data-tab="benefits">Perks</button>
+              </div>
+            </div>
+
+            <div class="card-glass-content">
+              <!-- Tab 1: Philosophy -->
+              <div class="manifesto-panel active" id="panel-philosophy">
+                <div class="panel-quote">
+                  "Talk is cheap. Show me the benchmark, the profile trace, and the reproducible test."
+                </div>
+                <ul class="checklist">
+                  <li>
+                    <span class="check-icon">✓</span>
+                    <div>
+                      <strong>Ship Before Perfection:</strong> We run bi-weekly demo nights where working MVPs beat polished slideshows every single time.
+                    </div>
+                  </li>
+                  <li>
+                    <span class="check-icon">✓</span>
+                    <div>
+                      <strong>Radical Transparency:</strong> All post-mortems, architectural mistakes, and bug autopsies are shared openly with the collective.
+                    </div>
+                  </li>
+                  <li>
+                    <span class="check-icon">✓</span>
+                    <div>
+                      <strong>Open Source First:</strong> We prioritize public goods. Over 70% of code written inside Nexus is open-sourced under permissive licenses.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tab 2: Admissions -->
+              <div class="manifesto-panel" id="panel-admissions">
+                <div class="timeline-steps">
+                  <div class="step-item">
+                    <span class="step-num">01</span>
+                    <div class="step-info">
+                      <h4>Codebase Audit</h4>
+                      <p>We review your public GitHub repositories, PR contributions, or personal side projects for code quality and architectural clarity.</p>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num">02</span>
+                    <div class="step-info">
+                      <h4>Async Systems Challenge</h4>
+                      <p>Solve a real-world engineering challenge (e.g. rate limiter, key-value engine, or concurrent queue) in your favorite language.</p>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num">03</span>
+                    <div class="step-info">
+                      <h4>Peer Council Vote</h4>
+                      <p>Two active hub fellows evaluate culture fit and passion before sending an invite link and cryptographic hub keys.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 3: Benefits -->
+              <div class="manifesto-panel" id="panel-benefits">
+                <div class="perks-grid">
+                  <div class="perk-box">
+                    <div class="perk-tag">Compute</div>
+                    <h5>$1,200 Cloud Credits</h5>
+                    <p>Free AWS, GCP & RunPod GPU credits for every active member team.</p>
+                  </div>
+                  <div class="perk-box">
+                    <div class="perk-tag">Events</div>
+                    <h5>Exclusive Hackathons</h5>
+                    <p>Quarterly 48-hour sprints with $25,000+ in sponsor prize pools.</p>
+                  </div>
+                  <div class="perk-box">
+                    <div class="perk-tag">Knowledge</div>
+                    <h5>Internal RFC Library</h5>
+                    <p>Access our confidential vault of 300+ production system architecture docs.</p>
+                  </div>
+                  <div class="perk-box">
+                    <div class="perk-tag">Mentors</div>
+                    <h5>Weekly 1-on-1 Office Hours</h5>
+                    <p>Pair program directly with Staff+ engineers and open source founders.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-glass-footer">
+              <span class="status-indicator online"></span>
+              <span>Collective Status: <strong>Actively Reviewing Applicants</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FEATURES SECTION ==================== -->
+    <section class="features-section section-padding" id="features">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-kicker">// 02. PLATFORM ECOSYSTEM</div>
+          <h2 class="section-title">Designed for Builders Who<br><span class="gradient-text">Refuse to Settle</span></h2>
+          <p class="section-subtitle">
+            Everything you need to level up your engineering career, ship production software, and gain recognition among peers who share your drive.
+          </p>
+        </div>
+
+        <!-- Bento Grid Layout -->
+        <div class="bento-grid">
+          <!-- Card 1: Interactive Live Pair Programming Hub (Large) -->
+          <article class="bento-card bento-col-2 spotlight-card">
+            <div class="card-glow-overlay"></div>
+            <div class="bento-card-content">
+              <div class="bento-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span class="bento-tag">Live Co-Working</span>
+              </div>
+              <h3 class="bento-title">Virtual War Rooms & Audio Lounges</h3>
+              <p class="bento-desc">
+                Jump into 24/7 drop-in pairing rooms. Share your screen, debug concurrency bugs together, and run live mob programming sessions with fellow hub members.
+              </p>
+              
+              <!-- Interactive Visual Mockup -->
+              <div class="mini-warroom">
+                <div class="room-header">
+                  <div class="room-title">
+                    <span class="pulse-indicator"></span>
+                    <span>Room: <code>#distributed-raft-cluster</code></span>
+                  </div>
+                  <span class="room-badge">4 Active</span>
+                </div>
+                <div class="room-users">
+                  <div class="room-user-chip">
+                    <span class="user-avatar" style="background:#6366f1">DR</span>
+                    <span class="user-name">david.rs</span>
+                    <div class="audio-waves"><span></span><span></span><span></span></div>
+                  </div>
+                  <div class="room-user-chip">
+                    <span class="user-avatar" style="background:#10b981">AK</span>
+                    <span class="user-name">alex.go</span>
+                  </div>
+                  <div class="room-user-chip">
+                    <span class="user-avatar" style="background:#06b6d4">KL</span>
+                    <span class="user-name">kira.ts</span>
+                  </div>
+                  <div class="room-user-chip you-chip">
+                    <span class="user-avatar" style="background:#f59e0b">YOU</span>
+                    <span class="user-name">candidate</span>
+                  </div>
+                </div>
+                <div class="room-action-bar">
+                  <button class="mini-btn" id="simulate-mic-btn">
+                    <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                    <span id="mic-status-text">Mic: Muted</span>
+                  </button>
+                  <span class="latency-pill">⚡ 18ms WebRTC</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Automated Diagnostic Sandbox -->
+          <article class="bento-card spotlight-card">
+            <div class="card-glow-overlay"></div>
+            <div class="bento-card-content">
+              <div class="bento-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" fill="none" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                <span class="bento-tag">AI CI/CD</span>
+              </div>
+              <h3 class="bento-title">Automated Lint & Benchmark Bot</h3>
+              <p class="bento-desc">
+                Our automated hub bot analyzes PR complexity, detects memory leaks, and profiles benchmark regressions before you hit master.
+              </p>
+
+              <div class="bot-interactive-widget">
+                <div class="bot-test-row">
+                  <span class="test-label">Memory Leaks</span>
+                  <span class="test-status pass">CLEAN</span>
+                </div>
+                <div class="bot-test-row">
+                  <span class="test-label">Thread Race Cond.</span>
+                  <span class="test-status pass">0 FOUND</span>
+                </div>
+                <div class="bot-test-row">
+                  <span class="test-label">Allocations / op</span>
+                  <span class="test-status highlight">0 allocs</span>
+                </div>
+                <button class="btn btn-outline btn-xs btn-block" id="trigger-scan-btn">
+                  <span>Run Benchmark Probe</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Global Mesh & Hackathons -->
+          <article class="bento-card spotlight-card">
+            <div class="card-glow-overlay"></div>
+            <div class="bento-card-content">
+              <div class="bento-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span class="bento-tag">Global Mesh</span>
+              </div>
+              <h3 class="bento-title">Global Developer Nodes</h3>
+              <p class="bento-desc">
+                Local chapters in San Francisco, London, Berlin, Singapore, and Tokyo organizing monthly in-person code jams and weekend hackathons.
+              </p>
+
+              <div class="nodes-visual">
+                <div class="node-pill"><span class="node-dot"></span> SF • 142 Devs</div>
+                <div class="node-pill"><span class="node-dot"></span> London • 98 Devs</div>
+                <div class="node-pill"><span class="node-dot"></span> Berlin • 76 Devs</div>
+                <div class="node-pill"><span class="node-dot"></span> Tokyo • 88 Devs</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Open Source Incubator (Large / Wide) -->
+          <article class="bento-card bento-col-2 spotlight-card">
+            <div class="card-glow-overlay"></div>
+            <div class="bento-card-content">
+              <div class="bento-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" fill="none" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span class="bento-tag">Open Source Hub</span>
+              </div>
+              <h3 class="bento-title">Featured Incubator Repositories</h3>
+              <p class="bento-desc">
+                Projects conceived and maintained inside NEXUS that have achieved widespread industry adoption and stars.
+              </p>
+
+              <div class="repo-showcase-grid">
+                <div class="repo-item">
+                  <div class="repo-top">
+                    <span class="repo-name">nexus-kv/bolt-raft</span>
+                    <span class="repo-stars">★ 4.2k</span>
+                  </div>
+                  <p class="repo-desc">Embedded zero-allocation Raft consensus engine written in Rust.</p>
+                  <div class="repo-meta">
+                    <span class="lang-dot rust"></span> Rust
+                    <span class="repo-mit">MIT</span>
+                  </div>
+                </div>
+
+                <div class="repo-item">
+                  <div class="repo-top">
+                    <span class="repo-name">hyper-flow/graph-engine</span>
+                    <span class="repo-stars">★ 3.1k</span>
+                  </div>
+                  <p class="repo-desc">WASM-accelerated compute graph for local machine learning pipelining.</p>
+                  <div class="repo-meta">
+                    <span class="lang-dot ts"></span> TypeScript
+                    <span class="repo-mit">Apache-2.0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ECOSYSTEM / TECH STACK ==================== -->
+    <section class="ecosystem-section" id="ecosystem">
+      <div class="container">
+        <div class="ecosystem-box">
+          <div class="ecosystem-header text-center">
+            <span class="badge badge-glow">Core Technology Tracks</span>
+            <h2>Master the Stacks Defining the Next Decade</h2>
+            <p>We focus on high-performance languages and modern cloud-native architectures.</p>
+          </div>
+
+          <div class="tech-tags-cloud">
+            <div class="tech-tag" data-tech="rust">
+              <span class="tech-logo">🦀</span>
+              <span class="tech-name">Rust</span>
+              <span class="tech-count">140+ Projects</span>
+            </div>
+            <div class="tech-tag" data-tech="typescript">
+              <span class="tech-logo">⚡</span>
+              <span class="tech-name">TypeScript</span>
+              <span class="tech-count">210+ Projects</span>
+            </div>
+            <div class="tech-tag" data-tech="go">
+              <span class="tech-logo">🐹</span>
+              <span class="tech-name">Go</span>
+              <span class="tech-count">95+ Projects</span>
+            </div>
+            <div class="tech-tag" data-tech="python">
+              <span class="tech-logo">🐍</span>
+              <span class="tech-name">Python / AI</span>
+              <span class="tech-count">180+ Projects</span>
+            </div>
+            <div class="tech-tag" data-tech="k8s">
+              <span class="tech-logo">☸️</span>
+              <span class="tech-name">Kubernetes</span>
+              <span class="tech-count">60+ Clusters</span>
+            </div>
+            <div class="tech-tag" data-tech="wasm">
+              <span class="tech-logo">🕸️</span>
+              <span class="tech-name">WebAssembly</span>
+              <span class="tech-count">45+ Modules</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ACCORDION ==================== -->
+    <section class="faq-section section-padding" id="faq">
+      <div class="container faq-container">
+        <div class="section-header text-center">
+          <div class="section-kicker">// 03. APPLICANT FAQ</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about membership, selection, and time commitments.</p>
+        </div>
+
+        <div class="accordion" id="faq-accordion">
+          <!-- FAQ 1 -->
+          <div class="accordion-item active">
+            <button class="accordion-header" aria-expanded="true">
+              <span>What qualifications are required to join NEXUS Hub?</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>We do not look at formal university credentials or resume brand names. We evaluate your code directly: proof of problem solving, public git repositories, engineering curiosity, and willingness to collaborate openly. Beginners with high trajectory and senior architects are both welcome.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Is membership completely free?</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Yes. NEXUS is 100% free for accepted developers. Our infrastructure, compute clusters, and event budgets are fully sponsored by tech foundation grants and industry partners who value open-source development.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>What is the expected weekly time commitment?</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Most members invest between 5 to 10 hours per week participating in code reviews, drop-in pairing rooms, and weekend hack sprints. Since our work is async-first, you can contribute according to your own timezone and schedule.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Can I build and incubate my own startup or side project?</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Absolutely. You retain 100% intellectual property ownership of any project you create. NEXUS provides the sounding board, technical reviewers, beta testers, and seed grant connections to help you launch successfully.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONNECT / APPLY SECTION ==================== -->
+    <section class="connect-section section-padding" id="connect">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-kicker">// 04. JOIN & CONNECT</div>
+          <h2 class="section-title">Claim Your Seat in the Collective</h2>
+          <p class="section-subtitle">
+            Submit your candidate profile below or connect directly across our community channels. Applications are reviewed within 48 hours.
+          </p>
+        </div>
+
+        <div class="connect-wrapper">
+          <!-- Left: Application Form -->
+          <div class="connect-form-card">
+            <div class="form-header">
+              <div class="form-badge">
+                <span class="status-indicator online"></span>
+                <span>Cohort V Registration</span>
+              </div>
+              <h3>Candidate Intake Application</h3>
+              <p>Fill out the fields below. Code speaks louder than buzzwords.</p>
+            </div>
+
+            <form id="application-form" class="app-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName">Full Name <span class="required">*</span></label>
+                  <input type="text" id="fullName" name="fullName" placeholder="Ada Lovelace" required>
+                  <span class="error-msg" id="nameError">Please enter your name.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="ada@domain.io" required>
+                  <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="githubUrl">GitHub / Gitlab / Portfolio <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <input type="url" id="githubUrl" name="githubUrl" placeholder="https://github.com/username" required>
+                  </div>
+                  <span class="error-msg" id="githubError">Please enter a valid URL.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="experienceLevel">Experience Level <span class="required">*</span></label>
+                  <select id="experienceLevel" name="experienceLevel" required>
+                    <option value="" disabled selected>Select your current stage</option>
+                    <option value="student">Student / Self-Taught (High Trajectory)</option>
+                    <option value="junior">Junior Developer (1-2 yrs)</option>
+                    <option value="mid">Mid-Level Software Engineer (3-5 yrs)</option>
+                    <option value="senior">Senior / Staff / Principal (5+ yrs)</option>
+                    <option value="founder">Founder / Open Source Core Maintainer</option>
+                  </select>
+                  <span class="error-msg" id="expError">Please select your experience level.</span>
+                </div>
+              </div>
+
+              <!-- Interactive Stack Selector Pills -->
+              <div class="form-group">
+                <label>Primary Focus Areas (Select up to 3)</label>
+                <div class="pill-selector-group" id="track-selector">
+                  <button type="button" class="select-pill" data-track="systems">Distributed Systems</button>
+                  <button type="button" class="select-pill" data-track="frontend">High-Performance Frontend</button>
+                  <button type="button" class="select-pill" data-track="ai">AI / LLM Infrastructure</button>
+                  <button type="button" class="select-pill" data-track="backend">Cloud & Microservices</button>
+                  <button type="button" class="select-pill" data-track="security">Security & Compilers</button>
+                </div>
+                <input type="hidden" id="selectedTracks" name="selectedTracks" value="">
+              </div>
+
+              <!-- Essay question -->
+              <div class="form-group">
+                <label for="projectNote">What is the most interesting technical challenge you solved? <span class="required">*</span></label>
+                <textarea id="projectNote" name="projectNote" rows="3" placeholder="Tell us about a tricky bug, concurrency race condition, or architecture decision..." required></textarea>
+                <span class="error-msg" id="noteError">Please share a brief technical challenge.</span>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-primary btn-lg btn-block glow-button" id="submit-btn">
+                  <span class="btn-text">Submit Application</span>
+                  <svg class="icon submit-arrow" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  <span class="spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <p class="form-privacy-note">
+                <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Your privacy is respected. No spam, ever. Review decisions delivered directly via email.
+              </p>
+            </form>
+
+            <!-- Success State Overlay (Hidden by default) -->
+            <div class="form-success-card" id="form-success-card" aria-hidden="true">
+              <div class="success-icon-bubble">
+                <svg viewBox="0 0 24 24" width="40" height="40" stroke="#10b981" fill="none" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <h3>Application Dispatched!</h3>
+              <p>Welcome to the queue. Our review council has received your profile and repo submissions. Expect a confirmation key within 48 hours.</p>
+              <div class="applicant-hash-box">
+                <span class="hash-label">Applicant ID:</span>
+                <code id="applicant-hash">NX-84920-AUTH</code>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="reset-form-btn">Submit Another Profile</button>
+            </div>
+          </div>
+
+          <!-- Right: Community Channels & Instant Connect -->
+          <div class="connect-channels-side">
+            <!-- Discord Card -->
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="channel-card discord-card">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+              </div>
+              <div class="channel-content">
+                <div class="channel-title-row">
+                  <h4>Join Discord Guild</h4>
+                  <span class="live-dot-tag">1,480 Online</span>
+                </div>
+                <p>Participate in public workshops, ask technical questions, and preview open pairing sessions.</p>
+              </div>
+              <div class="channel-arrow">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </div>
+            </a>
+
+            <!-- GitHub Collective Card -->
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="channel-card github-card">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </div>
+              <div class="channel-content">
+                <div class="channel-title-row">
+                  <h4>GitHub Organization</h4>
+                  <span class="live-dot-tag">12k+ Stars</span>
+                </div>
+                <p>Browse our open source RFCs, report issues, and star our shared libraries.</p>
+              </div>
+              <div class="channel-arrow">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </div>
+            </a>
+
+            <!-- Quick Copy Email & Contact Box -->
+            <div class="direct-contact-card">
+              <h4>Direct Hub Dispatch</h4>
+              <p>Prefer sending an async email directly to the admissions council?</p>
+              <div class="copy-input-group">
+                <input type="text" readonly value="admissions@nexushub.dev" id="hub-email-input">
+                <button type="button" class="btn btn-secondary btn-sm" id="copy-email-btn">
+                  <span id="copy-email-text">Copy Email</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 32 32" width="20" height="20" fill="none">
+                <path d="M8 6L16 2L24 6V14L16 18L8 14V6Z" stroke="url(#logo-footer)" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M8 18L16 22L24 18V26L16 30L8 26V18Z" stroke="url(#logo-footer)" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="16" cy="14" r="3" fill="#6366f1"/>
+                <defs>
+                  <linearGradient id="logo-footer" x1="8" y1="2" x2="24" y2="30" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#818cf8"/>
+                    <stop offset="1" stop-color="#06b6d4"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="brand-text">NEXUS<span class="brand-sub">.HUB</span></span>
+          </div>
+          <p class="footer-tagline">
+            The developer collective for high-velocity software engineers, distributed systems builders, and open-source contributors.
+          </p>
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span>All Hub Systems Operational // Edge Mesh 100%</span>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Navigation</h5>
+            <ul>
+              <li><a href="#hero">Overview</a></li>
+              <li><a href="#about">About Hub</a></li>
+              <li><a href="#features">Features & Bento</a></li>
+              <li><a href="#ecosystem">Tech Ecosystem</a></li>
+              <li><a href="#connect">Apply for Cohort</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Resources</h5>
+            <ul>
+              <li><a href="#about">Hub Manifesto</a></li>
+              <li><a href="#features">Open Repositories</a></li>
+              <li><a href="#faq">Admissions FAQ</a></li>
+              <li><a href="#connect">Code of Conduct</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Network</h5>
+            <ul class="social-links">
+              <li>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z"/></svg>
+                  <span>Discord</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  <span>X / Twitter</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 NEXUS.HUB Collective. All rights reserved. Open for builders.</p>
+        <button id="back-to-top" class="back-to-top-btn" title="Back to top" aria-label="Back to top">
+          <span>Top</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
